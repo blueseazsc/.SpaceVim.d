@@ -139,6 +139,9 @@ func! myspacevim#after() abort
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
 	inoremap jj <ESC>
 
+	" 快速跳转
+    nmap <F1>  :A<CR>
+
 	" search file in project
 	nnoremap <leader>ff :FzfFiles<CR>
 
