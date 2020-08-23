@@ -26,7 +26,7 @@ set autowrite
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-" let mapleader = ","
+let mapleader = ","
 let g:mapleader = ","
 
 " Fast saving
@@ -95,7 +95,7 @@ set fileencoding=utf-8
 set encoding=utf-8
 set helplang=cn
 
-set ffs=mac,unix,dos "Default file types
+set ffs=unix,mac,dos "Default file types 影响换行符 应尽量使用unix
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files and backups
@@ -108,9 +108,13 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set expandtab
-set shiftwidth=4
-set tabstop=4
+" tabstop ： 一个tab等于多少个空格，当 expandtab的情况下，会影响在插入模式下按下<tab>键输入的空格，以及真正的 \t 用多少个空格显示；当在 noexpandtab 的情况下，只会影响 \t 显示多少个空格（因为插入模式下按 <tab> 将会输入一个字符 \t ）
+" expandtab ：设为真，在插入模式下按<tab>会插入空格，用>缩进也会用空格空出来；如果设置为假noexpandtab，那么插入模式下按<tab>就是输入\t，用>缩进的结果也是在行前插入\t。
+" softtabstop ：按下 <tab> 将补出多少个空格。在 noexpandtab 的状态下，实际补出的是 \t 和空格的组合。所以这个选项非常奇葩，比如此时 tabstop=4 softtabstop=6 ，那么按下 <tab> 将会出现一个 \t 两个空格。
+" shiftwidth ：使用 >> << 或 == 来缩进代码的时候补出的空格数。这个值也会影响 autoindent 自动缩进的值。
+set expandtab       "Use softtabstop spaces instead of tab characters for indentation
+set shiftwidth=4    "Indent by 4 spaces when using >>, <<, == etc.
+set softtabstop=4   "Indent by 4 spaces when pressing <TAB>
 "set smarttab
 
 "set lbr
@@ -131,3 +135,4 @@ set laststatus=2
 "nnoremap <space> <C-W><C-W>
 "inoremap jj <ESC>
 
+let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'

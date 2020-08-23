@@ -1,1 +1,1 @@
-{  "src/*.cpp": {"alternate": "src/{}.h"},  "src/*.h": {"alternate": "src/{}.cpp"}}
+{	"comment": "copy project_alt.json to project_root/.project_alt.json",	"src/*.cc": {"alternate": "src/{}.h"},	"src/*.h": {"alternate": "src/{}.cc"}}

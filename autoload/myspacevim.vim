@@ -2,21 +2,22 @@ func! myspacevim#before() abort
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
 	" basic
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
-	exec 'source ~/.SpaceVim.d/autoload/vimrc.vim'
+	exec 'source ~/.SpaceVim.d/autoload/vimrc.before.vim'
     let g:spacevim_disabled_plugins = ['nerdcommenter', 'vim-cpp-enhanced-highlight']
 	set rtp+=/usr/local/opt/fzf
     call SpaceVim#custom#SPC('nnoremap', ['s', 'f'], 'Vista finder fzf:coc', 'vista search simbols', 1)
     " call SpaceVim#custom#SPC('nnoremap', ['s', 'F'], 'LeaderfFunction!', 'list functions', 1)
+	call SpaceVim#custom#SPC('nnoremap', ['<Space>'], '<ESC><C-W><C-W>', 'switch windows', 1)
 
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
 	" rg ag 配置
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
     let rg_profile = SpaceVim#mapping#search#getprofile('rg')
-    let rg_default_opts = rg_profile.default_opts + ['--follow']
+    let rg_default_opts = rg_profile.default_opts + ['--follow', '-w']
     call SpaceVim#mapping#search#profile({'rg' : {'default_opts' : rg_default_opts}})
 
     let ag_profile = SpaceVim#mapping#search#getprofile('ag')
-    let ag_default_opts = ag_profile.default_opts + ['--follow']
+    let ag_default_opts = ag_profile.default_opts + ['--follow', '-w']
     call SpaceVim#mapping#search#profile({'ag' : {'default_opts' : ag_default_opts}})
 	
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -37,7 +38,7 @@ func! myspacevim#before() abort
 
 	let g:vista_echo_cursor_strategy = 'echo'
 	let g:vista_close_on_jump = 0
-	let g:vista_sidebar_position = "vertical botright"
+	let g:vista_sidebar_position = "vertical topleft"
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
 	" vim-commentary
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -59,6 +60,10 @@ func! myspacevim#before() abort
     vmap cc gc
     nmap cu gcc
     vmap cu gc
+	"为python和shell等添加注释
+	autocmd FileType python,shell,coffee set commentstring=#\ %s
+	"修改注释风格
+	autocmd FileType java,c,cpp set commentstring=//\ %s
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
 	" ultisnips
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -135,21 +140,29 @@ endf
 
 func! myspacevim#after() abort
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
+	" basic
+	"""""""""""""""""""""""""""""""""""""""""""""""""""""
+	exec 'source ~/.SpaceVim.d/autoload/vimrc.after.vim'
+	"""""""""""""""""""""""""""""""""""""""""""""""""""""
 	" self
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
 	inoremap jj <ESC>
 
+	" 快速跳转
+    nmap <F1>  :A<CR>
+
 	" search file in project
-	nnoremap <leader>ff :FzfFiles<CR>
+	" nnoremap <leader>ff :FzfFiles<CR>
+	nnoremap ff :FzfFiles<CR>
 
 	" find symbol in project
     nmap <F2>  <space>srP
 
 	" open file tree
-	nmap <F3> :Defx -search=`expand('%:p')` `stridx(expand('%:p'), getcwd()) < 0? expand('%:p:h'): getcwd()`<CR>
+	nmap <F4> :Defx -search=`expand('%:p')` `stridx(expand('%:p'), getcwd()) < 0? expand('%:p:h'): getcwd()`<CR>
 
     " 放到此处用于重写 SpaceVim 映射的 F4
-    nnoremap  <F4>  :Vista!!<CR>
+    nnoremap  <F3>  :Vista!!<CR>
 
 	" easy move word and line
 	nmap mw <space>jw
@@ -162,6 +175,9 @@ func! myspacevim#after() abort
 	" buffer 左右浏览
 	nmap <C-L> ]b
 	nmap <C-H> [b
+
+	" 窗口切换
+	nmap <C-K> <C-W><C-W>
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
 	" vim-lsp-cxx-highlight
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""

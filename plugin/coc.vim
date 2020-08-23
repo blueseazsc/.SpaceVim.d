@@ -81,24 +81,24 @@ call coc#config("languageserver", {
 " coc.nvim 插件，用于支持 python java 等语言
 let s:coc_extensions = [
 			\ 'coc-cmake',
-			\ 'coc-java',
-			\ 'coc-go',
 			\ 'coc-json',
 			\ 'coc-sh',
-			\ 'coc-sql',
 			\ 'coc-xml',
-			\ 'coc-yaml',
-			\ 'coc-vimlsp',
-			\ 'coc-word',
-			\ 'coc-dictionary',
 			\ 'coc-ci',
-			\ 'coc-snippets',
-			\ 'coc-imselect',
+			\ 'coc-dictionary',
 			\]
+			" \ 'coc-vimlsp',
+			" \ 'coc-yaml',
+			" \ 'coc-word',
+			" \ 'coc-sql',
+			" \ 'coc-go',
+			" \ 'coc-java',
 			" \ 'coc-python',
 			" \ 'coc-css',
 			" \ 'coc-html',
 			" \ 'coc-tsserver',
+			" \ 'coc-snippets',
+			" \ 'coc-imselect',
 			" \]
 for extension in s:coc_extensions
 	call coc#add_extension(extension)
