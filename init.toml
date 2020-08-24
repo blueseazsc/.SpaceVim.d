@@ -13,7 +13,7 @@
 	# Change the max number of columns for SpaceVim. Default is 120.
     max_column = 512
 	# Enable/Disable cursorline. Default is true, cursorline will be highlighted in normal mode
-    enable_cursorline = false
+    enable_cursorline = true
 	# Enable/Disable cursorcolumn. Default is 0, cursorcolumn will be highlighted in normal mode.
 	enable_cursorcolumn = false
 
