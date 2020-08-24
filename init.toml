@@ -144,6 +144,8 @@
 	# 支持 Leader + idx 快捷键快速跳转
 [[layers]]
     name = "core#statusline"
+	# 如果打开大文件 运行会卡  就把这个layer关掉
+	# enable = false
 [[layers]]
     name = "core"
 	# defx: file tree
