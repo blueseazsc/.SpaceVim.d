@@ -95,7 +95,7 @@ set fileencoding=utf-8
 set encoding=utf-8
 set helplang=cn
 
-set ffs=mac,unix,dos "Default file types
+set ffs=unix,mac,dos "Default file types
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files and backups
