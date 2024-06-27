@@ -4,7 +4,7 @@ func! myspacevim#before() abort
 	"""""""""""""""""""""""""""""""""""""""""""""""""""""
 	exec 'source ~/.SpaceVim.d/autoload/vimrc.before.vim'
     let g:spacevim_disabled_plugins = ['nerdcommenter', 'vim-cpp-enhanced-highlight']
-	set rtp+=/usr/local/opt/fzf
+	set rtp+=/opt/homebrew/opt/fzf
     call SpaceVim#custom#SPC('nnoremap', ['s', 'f'], 'Vista finder fzf:coc', 'vista search simbols', 1)
     " call SpaceVim#custom#SPC('nnoremap', ['s', 'F'], 'LeaderfFunction!', 'list functions', 1)
 	call SpaceVim#custom#SPC('nnoremap', ['<Space>'], '<ESC><C-W><C-W>', 'switch windows', 1)
