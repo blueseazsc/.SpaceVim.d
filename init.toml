@@ -242,3 +242,4 @@
 [[custom_plugins]]
     name = 'github/copilot.vim'
 	merged = false
+	enable = false
