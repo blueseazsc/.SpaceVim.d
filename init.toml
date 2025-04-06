@@ -121,15 +121,9 @@
     #################################################################
     # autocomplete
     #################################################################
-	#% cmake -H. -BDebug -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=YES
-	#% ln -s Debug/compile_commands.json .
-    autocomplete_method = "coc"
+    autocomplete_method = "deoplete"
 	# autocomplete 括号
 	autocomplete_parens = true
-    #################################################################
-    # google suggestions
-    #################################################################
-	enable_googlesuggest = true
 
 #################################################################
 #	默认的layer
@@ -173,73 +167,15 @@
 	git-plugin = "fugitive"
 [[layers]]
 	name = "fzf"
-# [[layers]]
-# 	name = "lang#markdown"
 [[layers]]
 	name = 'shell'
 	default_position = 'bottom'
 	default_height = 30
-[[layers]]
-  name = "lang#groovy"
-# Enable autocomplete layer
-[[layers]]
-	name = 'autocomplete'
-	auto_completion_return_key_behavior = "complete"
-	auto_completion_tab_key_behavior = "smart"
-	auto_completion_delay = 50
-	auto_completion_complete_with_key_sequence = "nil"
-	auto_completion_complete_with_key_sequence_delay = 0.1
-	enable = true
 
-# The lsp layer has to be enabled too. SpaceVim converts the configuration in the lsp layer and then passes it to coc.
-# You can put your language servers here.
-[[layers]] 
-	name = 'lsp'
-  	# filetypes = [
-  	#   'c',
-  	#   'cpp'
-  	# ]
-  	# [layers.override_cmd]
-  	#   c = ['ccls', '--log-file=/tmp/ccls.log']
-  	#   cpp = ['ccls', '--log-file=/tmp/ccls.log']
-[[layers]]
-	name = "lang#c"
-  	clang_executable = "/usr/bin/clang"
-  	[layer.clang_std]
-		c = "c11"
-  	  	cpp = "c++1z"
-  	  	objc = "c11"
-  	  	objcpp = "c++1z"
 #################################################################
 #	custom plugin
 #################################################################
-# 基于lsp的高亮插件
-[[custom_plugins]]
-    name = 'jackguo380/vim-lsp-cxx-highlight'
-	merged = false
-
-# vista.vim 的依赖
-[[custom_plugins]]
-	name = 'junegunn/fzf.vim'
-	merged = false
-
-# 更加美观的 tagbar
-[[custom_plugins]]
-    name = 'liuchengxu/vista.vim'
-	merged = false
-
 # 比 nerdcommentary 更好用的注释工具
 [[custom_plugins]]
     name = 'tpope/vim-commentary'
 	merged = false
-
-# 更加方便的调节窗口的大小
-[[custom_plugins]]
-    name = 'simeji/winresizer'
-	merged = false
-
-# copilot
-[[custom_plugins]]
-    name = 'github/copilot.vim'
-	merged = false
-	enable = false

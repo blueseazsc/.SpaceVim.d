@@ -134,5 +134,3 @@ set laststatus=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "nnoremap <space> <C-W><C-W>
 "inoremap jj <ESC>
-
-let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
